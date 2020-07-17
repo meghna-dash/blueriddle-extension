@@ -3,6 +3,7 @@ import logo from './icon.png';
 import Results from './Results.js';
 import './App.css';
 import './App.scss';
+import './loading.scss';
 
 class App extends Component {
   render() {

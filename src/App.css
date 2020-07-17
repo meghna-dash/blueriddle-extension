@@ -2,6 +2,9 @@
   padding: 12px;
   font-family: 'Quicksand', sans-serif;
   overflow: scroll;
+  background: white;
+  width: 350px;
+  height: 600px;
 }
 
 .App-header {
@@ -52,18 +55,9 @@ header {
   text-align: center;
 }
 
-header p {
-  max-width: 55ch;
-  margin: 1rem auto;
-}
-
 h1 span {
   display: block;
   font-weight: 200;
-}
-
-p {
-  color: var(--grey);
 }
 
 .boxes {
@@ -72,19 +66,19 @@ p {
   justify-content: center;
   align-items: center;
   width: 600px;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .box {
   border-radius: 8px;
   background-color: #fff;
-  max-width: 500px;
+  width: 330px;
   display: flex;
   flex-direction: column;
   height: auto;
   position: relative;
-  padding: 2rem;
-  margin: 10px;
+  padding: 10px;
+  margin: 5px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.06), 0 6px 6px rgba(0,0,0,0.1);
   overflow: hidden;
 }
@@ -133,4 +127,22 @@ p {
   .box.box-vert-center {
     transform: translateY(0);
   }
+}
+
+.showMore {
+  display:block;
+  font-weight:700;
+  text-transform:uppercase;
+  margin:20px;
+  margin-bottom: 30px;
+  color:#0077C8;
+  text-decoration:none;
+  cursor: pointer;
+}
+
+.textClamp{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
