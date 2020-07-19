@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Blueriddle",
-  "author": "Meghna Dash",
-  "version": "3",
+  "author": "Meghna Dash & Sidharth Potdar",
+  "version": "1.2.3",
   "description": "Know where your Amazon products come from",
   "permissions": [
     "activeTab",
