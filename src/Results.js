@@ -30,6 +30,7 @@ class Results extends Component {
     }
     this.showMoreQas = this.showMoreQas.bind(this);
     this.showMoreReviews = this.showMoreReviews.bind(this);
+    this.extractASIN = this.extractASIN.bind(this);
   }
 
   showMoreQas() {
@@ -48,6 +49,19 @@ class Results extends Component {
     )
   }
 
+  extractASIN(url){
+    var ASINreg = new RegExp(/(?:\/)([A-Z0-9]{10})(?:$|\/|\?)/);
+    var cMatch = url.match(ASINreg);
+    if(cMatch == null){
+      this.setState({
+        isAmazonPage: false,
+      })
+    }
+    this.setState({
+      asin: "" + cMatch[1],
+    })
+  }
+
   componentDidMount() {
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
       this.setState({
@@ -56,12 +70,8 @@ class Results extends Component {
 
       if(this.state.windowUrl.includes("amazon")) {
         const url = "https://api.blueriddle.io";
-        var asin = this.state.windowUrl.split("/")[4];
-        if (asin) {
-          this.setState({
-            asin: "" + asin
-          })
-        }
+        this.extractASIN(this.state.windowUrl);
+
         const baseUrl = new URL(this.state.windowUrl).origin
 
         const fetchData = url + "/product/" + `${this.state.asin}` + '?urlOrigin=' + baseUrl;
