@@ -90,6 +90,7 @@ class Results extends Component {
           this.setState({
             error: true,
           })
+          console.log(err)
         }) ;
       }
       else {
@@ -179,15 +180,6 @@ class Results extends Component {
                   </div>
                 </div>
               )) : <div />}
-              {this.state.response.verdict ?
-                <a className="btn btn-primary showMore" onClick={this.showMoreQas} style={{ onHover: 'pointer' }}>
-                  {this.state.qasExpanded ? (
-                    <span> - Show less</span>
-                  ) : (
-                    <span> + Show more</span>
-                  )}
-                </a>
-              : <div />}
               {this.state.response.evidence.reviews ? this.state.response.evidence.reviews.slice(0, this.state.reviewsToShow).map((review, id) => (
                 <div class="box" key={id}>
                   <p className="card-type-label">
